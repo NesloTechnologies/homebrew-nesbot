@@ -15,15 +15,14 @@ class Nesbot < Formula
   version "1.0.0"
   license "MIT"
 
-  depends_on "node@22"
-
   def install
     libexec.install Dir["*"]
 
-    # Create a wrapper script that invokes the CLI via node
+    # Create a wrapper script that invokes the CLI via the system node
+    # Requires Node.js >= 18 (nvm, brew node, or system install)
     (bin/"nesbot").write <<~EOS
       #!/usr/bin/env bash
-      exec "#{Formula["node@22"].opt_bin}/node" "#{libexec}/bin/nesbot.js" "$@"
+      exec node "#{libexec}/bin/nesbot.js" "$@"
     EOS
   end
 
