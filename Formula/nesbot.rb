@@ -10,9 +10,9 @@
 class Nesbot < Formula
   desc "Deterministic, policy-driven engineering automation CLI"
   homepage "https://github.com/NesloTechnologies/nesbot"
-  url "https://github.com/NesloTechnologies/homebrew-nesbot/releases/download/v1.5.0/nesbot-1.5.0-darwin-arm64.tar.gz"
-  sha256 "eebe2223e61e9436baac9692658dce7248c594d1c70a36fab8447282f334d1d1"
-  version "1.5.0"
+  url "https://github.com/NesloTechnologies/homebrew-nesbot/releases/download/v1.5.1/nesbot-1.5.1-darwin-arm64.tar.gz"
+  sha256 "6ca05aef2eb73818b9ffcf20dcbd2cb7fd7ae1e2343a29cc369726f920eaa994"
+  version "1.5.1"
   license "MIT"
 
   def install
