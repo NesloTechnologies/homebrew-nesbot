@@ -10,9 +10,9 @@
 class Nesbot < Formula
   desc "Deterministic, policy-driven engineering automation CLI"
   homepage "https://github.com/NesloTechnologies/nesbot"
-  url "https://github.com/NesloTechnologies/homebrew-nesbot/releases/download/v1.33.17/nesbot-1.33.17-darwin-arm64.tar.gz"
-  sha256 "a68de0fed0c11a2dd981aa233c279b8324541febe46b11a471db9571606584bc"
-  version "1.33.17"
+  url "https://github.com/NesloTechnologies/homebrew-nesbot/releases/download/v1.33.18/nesbot-1.33.18-darwin-arm64.tar.gz"
+  sha256 "38d0f9d9f2c036f1a11329ef90e240531c8da1c3d5994e608cbf2e42b87c6920"
+  version "1.33.18"
   license "MIT"
 
   def install
@@ -27,8 +27,10 @@ class Nesbot < Formula
   end
 
   test do
-    # Verify the CLI starts and can init a repo
-    system bin/"nesbot", "init", "--repo", testpath/"test-repo"
-    assert_predicate testpath/"test-repo/.nesbot/config.json", :exist?
+    # Verify the CLI starts and reports a parseable version string.
+    # (init is intentionally avoided — it uses interactive prompts that
+    # require a PTY, which Homebrew's sandbox doesn't permit.)
+    output = shell_output("#{bin}/nesbot version 2>&1")
+    assert_match version.to_s, output
   end
 end
