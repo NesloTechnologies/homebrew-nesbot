@@ -10,9 +10,9 @@
 class Nesbot < Formula
   desc "Deterministic, policy-driven engineering automation CLI"
   homepage "https://github.com/NesloTechnologies/nesbot"
-  url "https://github.com/NesloTechnologies/homebrew-nesbot/releases/download/v1.33.18/nesbot-1.33.18-darwin-arm64.tar.gz"
-  sha256 "38d0f9d9f2c036f1a11329ef90e240531c8da1c3d5994e608cbf2e42b87c6920"
-  version "1.33.18"
+  url "https://github.com/NesloTechnologies/homebrew-nesbot/releases/download/v1.33.19/nesbot-1.33.19-darwin-arm64.tar.gz"
+  sha256 "19743233aa5cb2b35936f59718154c42c052e5394b94b7bd30c1358e8c2df7b7"
+  version "1.33.19"
   license "MIT"
 
   def install
@@ -26,4 +26,8 @@ class Nesbot < Formula
     EOS
   end
 
+  # No test do block — Homebrew uses PTY to spawn the test subprocess;
+  # PTY allocation fails on macOS Sequoia sandbox ("can't get Master/Slave
+  # device") regardless of what the test does. Correctness is verified by
+  # the release artifact checksum + scripts/verify-release.sh.
 end
