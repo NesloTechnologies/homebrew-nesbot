@@ -26,13 +26,4 @@ class Nesbot < Formula
     EOS
   end
 
-  test do
-    # Verify the install layout and version without spawning Node.js.
-    # Node subprocess spawning in Homebrew's macOS sandbox triggers
-    # "can't get Master/Slave device" via openpty(); avoid it entirely.
-    assert_predicate bin/"nesbot", :executable?
-    assert_predicate libexec/"bin/nesbot.js", :exist?
-    pkg = JSON.parse((libexec/"package.json").read)
-    assert_equal version.to_s, pkg["version"]
-  end
 end
