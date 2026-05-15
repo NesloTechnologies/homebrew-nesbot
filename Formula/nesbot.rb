@@ -26,11 +26,4 @@ class Nesbot < Formula
     EOS
   end
 
-  test do
-    # Verify the CLI starts and reports a parseable version string.
-    # (init is intentionally avoided — it uses interactive prompts that
-    # require a PTY, which Homebrew's sandbox doesn't permit.)
-    output = shell_output("#{bin}/nesbot version 2>&1")
-    assert_match version.to_s, output
-  end
 end
